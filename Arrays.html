@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to add elements to the beginning of the array.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+    
+    var fruits = ["apple", "orange" , "mango",  "banana", "grapes" , "strawberry"];
+
+
+function myFunction() {
+    
+    var someone = fruits.indexOf("grapes");
+    fruits.splice(someone,1);
+    fruits.unshift(fruits[someone]);
+     
+    document.getElementById("demo").innerHTML = fruits;
+}
+    
+</script>
+
+
+</body>
+</html>

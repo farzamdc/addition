@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Addition Upto</title>
+</head>
+<body>
+    <p>Enter Number<input id="n" type="number"/><button onclick="rear()">Add</button></p>
+    <p id="yuri"></p>
+<script>
+    function rear(){
+        var total =0;
+        var n = document.getElementById("n").value;
+        for(i=0;i<=n;i++){
+            total = total+i;
+        }
+        window.console.log(total);
+    }
+</script>
+</body>
+    
+</html>

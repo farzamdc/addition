@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LEAP YEAR</title>
+</head>
+<body>
+    <p id="year"></p>
+<script>
+    var y;
+    var result = y;
+    var i=1;
+    for(y=2019;y<2099;y++){
+        if(y%4==0){
+        
+            document.getElementById("year").innerHTML += "<br />" +i+') '+y;
+        i++;
+        }
+        
+    }
+    
+</script>
+</body>
+</html>
