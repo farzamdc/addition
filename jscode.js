@@ -3,8 +3,11 @@ var score;
 var action;
 var timeremaining = 60;
 var rightAnswer;
-
+var wrongAnswer;
+var counter = 1 ;
+hide("qno");
 document.getElementById("startreset").onclick = function(){
+    show("qno");
     if(playing == true){
         location.reload();
     }else{
@@ -23,7 +26,10 @@ document.getElementById("startreset").onclick = function(){
     }
     for(i=1;i<5;i++){
         document.getElementById("box" + i).onclick = function(){
+            counter++;
+            document.getElementById("qnovalue").innerHTML = counter;
             if(playing == true){
+               
                 if(this.innerHTML == rightAnswer){
                     score++;
                     document.getElementById("scorevalue").innerHTML = score;
@@ -34,13 +40,17 @@ document.getElementById("startreset").onclick = function(){
                         hide("right");
                     },1000);
                     generateQA();
-                    }else{
+                } else{
+                        return score;
                         hide("right");
                         show("wrong");
                         setTimeout(function(){
                             hide("wrong")
                         },500);
-                    }
+                        generateQA();
+                    
+                }
+                
                     
                 }
             }
@@ -63,11 +73,12 @@ document.getElementById("startreset").onclick = function(){
             stopCountdown();
             show("gameover")
          
-            document.getElementById("gameover").innerHTML = "<p>GAME OVER!</p><p>Your Score : "+ score +" </p>"
-            
+            document.getElementById("gameover").innerHTML = "<p>GAME OVER!</p><p>Your Score : "+ score +" </p><br><p>Questions attempted : "+ counter +"</p> "
+            hide("score");
             hide("timeleft");
             hide("right");
             hide("wrong");
+            hide("qno");
             playing = false;
             
             document.getElementById("startreset").innerHTML = "START";
